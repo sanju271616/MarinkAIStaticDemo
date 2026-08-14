@@ -2,6 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "tanstack-start",
   "installCommand": "npm install --prefix marinkai-brand-clarity-main",
-  "buildCommand": "npm run build --prefix marinkai-brand-clarity-main",
-  "outputDirectory": "marinkai-brand-clarity-main/.vercel/output"
+  "buildCommand": "npm run vercel-build"
 }

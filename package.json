@@ -1,0 +1,7 @@
+{
+  "name": "marinkai-static-demo-root",
+  "private": true,
+  "scripts": {
+    "vercel-build": "npm run build --prefix marinkai-brand-clarity-main && node marinkai-brand-clarity-main/scripts/prepare-vercel-output.mjs"
+  }
+}
