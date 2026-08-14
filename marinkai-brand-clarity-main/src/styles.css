@@ -1,0 +1,309 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * MARINKAI design system.
+ * Dark-first premium editorial enterprise interface.
+ * All surface / accent / metric colors are tokens — never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-2xl: 26px;
+
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--surface-elevated);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--gold);
+  --color-primary-foreground: var(--gold-foreground);
+  --color-secondary: var(--surface-elevated);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--surface-elevated);
+  --color-muted-foreground: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-accent: var(--surface-elevated);
+  --color-accent-foreground: var(--foreground);
+  --color-destructive: var(--negative);
+  --color-destructive-foreground: var(--gold-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--border);
+  --color-ring: var(--ring);
+
+  --color-gold: var(--gold);
+  --color-gold-2: var(--gold-2);
+  --color-teal: var(--teal);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar-border: var(--border);
+
+  --color-dis: var(--metric-dis);
+  --color-prominence: var(--metric-prominence);
+  --color-affinity: var(--metric-affinity);
+  --color-advocacy: var(--metric-advocacy);
+
+  --color-q-strengthen: var(--quad-strengthen);
+  --color-q-grow: var(--quad-grow);
+  --color-q-mitigate: var(--quad-mitigate);
+  --color-q-deprioritize: var(--quad-deprioritize);
+}
+
+:root,
+.dark {
+  --canvas: #050c11;
+  --background: #050c11;
+  --surface: #0e141a;
+  --surface-elevated: #121a22;
+  --sidebar: #0b1116;
+  --gold: #d7a84f;
+  --gold-2: #b8892f;
+  --gold-foreground: #0a0f14;
+  --teal: #16a5a0;
+  --foreground: #f8f8f8;
+  --text-muted: rgba(248, 248, 248, 0.58);
+  --text-subtle: rgba(248, 248, 248, 0.38);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --ring: rgba(215, 168, 79, 0.55);
+  --positive: #16a5a0;
+  --negative: #d4845a;
+  --accent-active: var(--gold);
+
+  --metric-dis: #4a7fd4;
+  --metric-prominence: #7b6fd4;
+  --metric-affinity: #16a5a0;
+  --metric-advocacy: #d4845a;
+
+  --quad-strengthen: #16a5a0;
+  --quad-grow: #4a7fd4;
+  --quad-mitigate: #d4845a;
+  --quad-deprioritize: #9b9590;
+
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --shadow-panel: 0 24px 60px -30px rgba(0, 0, 0, 0.8);
+  --grid-line: rgba(255, 255, 255, 0.06);
+}
+
+.light {
+  --canvas: #f6f4f0;
+  --background: #f6f4f0;
+  --surface: #fffefb;
+  --surface-elevated: #fbf8f3;
+  --sidebar: #f1eee8;
+  --gold: #9a7526;
+  --gold-2: #7d5d18;
+  --gold-foreground: #fffdf7;
+  --teal: #0f8b87;
+  --foreground: #16181a;
+  --text-muted: rgba(22, 24, 26, 0.62);
+  --text-subtle: rgba(22, 24, 26, 0.42);
+  --border: rgba(22, 24, 26, 0.09);
+  --border-strong: rgba(22, 24, 26, 0.16);
+  --ring: rgba(15, 139, 135, 0.5);
+  --positive: #0f8b87;
+  --negative: #b85f34;
+  --accent-active: var(--teal);
+
+  --metric-dis: #2f5fae;
+  --metric-prominence: #5b4fb0;
+  --metric-affinity: #0f8b87;
+  --metric-advocacy: #b8632f;
+
+  --quad-strengthen: #0f8b87;
+  --quad-grow: #2f5fae;
+  --quad-mitigate: #b8632f;
+  --quad-deprioritize: #8a847e;
+
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(22, 24, 26, 0.07);
+  --shadow-panel: 0 18px 40px -28px rgba(30, 25, 15, 0.35);
+  --grid-line: rgba(22, 24, 26, 0.07);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "tnum" 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--gold) 35%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility panel {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+@utility glass {
+  background-color: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+}
+
+@utility label-caps {
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  font-weight: 500;
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility control-base {
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid var(--border-strong);
+  background-color: var(--surface-elevated);
+  font-size: 13px;
+  color: var(--foreground);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+  &:hover {
+    border-color: color-mix(in srgb, var(--accent-active) 45%, transparent);
+  }
+}
+
+@utility rise {
+  animation: rise 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility hero-noise {
+  background-image:
+    radial-gradient(
+      120% 90% at 15% 10%,
+      color-mix(in srgb, var(--gold) 12%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      90% 80% at 85% 90%,
+      color-mix(in srgb, var(--teal) 10%, transparent),
+      transparent 65%
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+/* ---- Earth backdrop + emitting signal lines ---- */
+.earth-media {
+  opacity: 0.55;
+  filter: saturate(1.05) contrast(1.05);
+}
+.light .earth-media {
+  opacity: 0.28;
+  filter: saturate(0.9) brightness(1.15) contrast(0.95);
+}
+.earth-veil {
+  background:
+    radial-gradient(90% 70% at 20% 20%, color-mix(in srgb, var(--gold) 10%, transparent), transparent 60%),
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--canvas) 82%, transparent),
+      color-mix(in srgb, var(--canvas) 45%, transparent) 55%,
+      color-mix(in srgb, var(--canvas) 88%, transparent)
+    );
+}
+.signal-dash {
+  stroke-dasharray: 90 900;
+  stroke-dashoffset: 990;
+  opacity: 0.75;
+  animation: signal-travel 6.5s linear infinite;
+}
+.signal-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: signal-pulse 3.2s ease-out infinite;
+}
+@keyframes signal-travel {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes signal-pulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.5);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signal-dash,
+  .signal-pulse {
+    animation: none;
+  }
+}
+
+@utility earth-fade {
+  mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
+}
